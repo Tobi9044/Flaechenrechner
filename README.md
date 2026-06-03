@@ -1,25 +1,22 @@
-# Flächenmeister 3D
+# Flächenmeister 3D Plus
 
-Interaktives Lernspiel für Klasse 5.
+Interaktive Lernapp für Klasse 5 und 6.
 
 ## Inhalte
 
-- cm², dm², m², a, ha, km²
+- Längen, Flächen und Volumen unterscheiden
+- dm², m², a, ha, km²
+- dm³, m³, Liter und cm³
+- 3D Flächenveranschaulichung
+- 3D Würfelveranschaulichung für Volumen
+- +1 dm², -1 dm², +1 m², -1 m²
+- +1 dm³, -1 dm³, +1 m³, -1 m³
 - Umrechner
-- 3D Veranschaulichung von 1 m² = 100 dm²
-- Aufgaben mit Punkten und Leveln
+- Trainingsaufgaben
 - Mini Prüfung
+- Punkte, Serie und Abzeichen
+- Speicherstand über localStorage
 
-## GitHub Pages aktivieren
+## GitHub Pages
 
-1. Repository öffnen
-2. Settings
-3. Pages
-4. Source: Deploy from a branch
-5. Branch: main
-6. Folder: /root
-7. Save
-
-Danach ist die Seite erreichbar unter:
-
-https://DEINNAME.github.io/REPOSITORYNAME/
+Repository Settings -> Pages -> Deploy from branch -> main -> /(root)
