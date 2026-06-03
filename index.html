@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flächenmeister 3D</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>🏆 Flächenmeister 3D</h1>
+  <p>Flächenmaße kindgerecht lernen, umrechnen und üben</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Spielstand</h2>
+    <div class="grid">
+      <div class="status">⭐ Punkte: <span id="score">0</span></div>
+      <div class="status">🎯 Level: <span id="level">1</span></div>
+      <div class="status">🔥 Serie: <span id="streak">0</span></div>
+    </div>
+    <div class="progressOuter"><div id="progress" class="progressInner"></div></div>
+  </section>
+
+  <section class="card">
+    <h2>1. Die wichtigste Idee</h2>
+    <p class="big">Bei Flächen ist jeder Schritt zur nächsten Einheit mal 100 oder geteilt durch 100.</p>
+    <p>Warum? Eine Fläche hat zwei Richtungen: Länge und Breite.</p>
+    <table>
+      <tr><th>Einheit</th><th>Vorstellung</th><th>In m²</th></tr>
+      <tr><td>1 cm²</td><td>sehr kleines Kästchen</td><td>0,0001 m²</td></tr>
+      <tr><td>1 dm²</td><td>10 cm × 10 cm</td><td>0,01 m²</td></tr>
+      <tr><td>1 m²</td><td>1 m × 1 m</td><td>1 m²</td></tr>
+      <tr><td>1 a</td><td>10 m × 10 m</td><td>100 m²</td></tr>
+      <tr><td>1 ha</td><td>100 m × 100 m</td><td>10.000 m²</td></tr>
+      <tr><td>1 km²</td><td>1 km × 1 km</td><td>1.000.000 m²</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>2. 3D Veranschaulichung: 1 m² = 100 dm²</h2>
+    <p>Die 3D Kästchen zeigen eine Fläche. 10 × 10 kleine dm² Kästchen ergeben 1 m².</p>
+    <div class="badges">
+      <span>10 breit</span>
+      <span>10 lang</span>
+      <span>100 dm² = 1 m²</span>
+    </div>
+    <div class="buttons">
+      <button data-action="fill" data-value="1">1 dm²</button>
+      <button data-action="fill" data-value="10">10 dm²</button>
+      <button data-action="fill" data-value="25">25 dm²</button>
+      <button data-action="fill" data-value="50">50 dm²</button>
+      <button data-action="fill" data-value="100">100 dm²</button>
+    </div>
+    <div class="buttons">
+      <button class="secondary" data-action="view" data-value="flat">Draufsicht</button>
+      <button class="secondary" data-action="view" data-value="side">3D Ansicht</button>
+      <button class="secondary" data-action="view" data-value="turn">Gedreht</button>
+    </div>
+    <div class="scene">
+      <div id="cubeGrid3d" class="cubeGrid3d"></div>
+    </div>
+    <p id="cubeText" class="result"></p>
+  </section>
+
+  <section class="card">
+    <h2>3. Umrechner</h2>
+    <input id="convValue" type="number" value="1" step="any" />
+    <br />
+    <select id="fromUnit">
+      <option value="cm2">cm²</option>
+      <option value="dm2">dm²</option>
+      <option value="m2" selected>m²</option>
+      <option value="a">a</option>
+      <option value="ha">ha</option>
+      <option value="km2">km²</option>
+    </select>
+    <span> nach </span>
+    <select id="toUnit">
+      <option value="cm2">cm²</option>
+      <option value="dm2" selected>dm²</option>
+      <option value="m2">m²</option>
+      <option value="a">a</option>
+      <option value="ha">ha</option>
+      <option value="km2">km²</option>
+    </select>
+    <br />
+    <button data-action="convert">Umrechnen</button>
+    <p id="convResult" class="result"></p>
+  </section>
+
+  <section class="card">
+    <h2>4. Trainingsarena</h2>
+    <p id="taskText" class="big">Drücke Neue Aufgabe.</p>
+    <input id="answer" type="number" step="any" placeholder="Antwort eingeben" />
+    <div class="buttons">
+      <button class="good" data-action="check">Prüfen</button>
+      <button class="secondary" data-action="newTask">Neue Aufgabe</button>
+      <button class="warn" data-action="hint">Tipp</button>
+    </div>
+    <p id="feedback" class="result"></p>
+    <p id="hint" class="small"></p>
+  </section>
+
+  <section class="card">
+    <h2>5. Level wählen</h2>
+    <div class="buttons">
+      <button data-action="level" data-value="1">Level 1</button>
+      <button data-action="level" data-value="2">Level 2</button>
+      <button data-action="level" data-value="3">Level 3</button>
+      <button data-action="level" data-value="4">Level 4</button>
+      <button data-action="level" data-value="5">Level 5</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>6. 3D Aufgaben</h2>
+    <p class="big" id="visualTask">Wie viele dm² sind gelb markiert?</p>
+    <input id="visualAnswer" type="number" placeholder="Antwort" />
+    <div class="buttons">
+      <button class="good" data-action="checkVisual">3D Aufgabe prüfen</button>
+      <button class="secondary" data-action="newVisual">Neue 3D Aufgabe</button>
+    </div>
+    <p id="visualFeedback" class="result"></p>
+  </section>
+
+  <section class="card">
+    <h2>7. Mini Prüfung</h2>
+    <p>10 Aufgaben am Stück. Danach bekommst du eine Auswertung.</p>
+    <button class="bad" data-action="exam">Prüfung starten</button>
+    <p id="examInfo" class="result"></p>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
